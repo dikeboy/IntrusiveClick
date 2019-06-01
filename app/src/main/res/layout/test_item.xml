@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="module" type="com.lin.aopdemo.model.MainModel"/>
+        <variable name="click" type="com.lin.aopdemo.MainActivity.MainClickListener"/>
+        <variable
+                name="position"
+                type="Integer" />
+
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="@{module.name}"
+                  app:bindClickData='@{"name:" + module.name + ",position:" + position}'
+                  android:textSize="20sp"
+                  android:onClick="@{(view)->click.onMainClick(module,view)}"
+                  android:padding="20dp"/>
+    </LinearLayout>
+</layout>
